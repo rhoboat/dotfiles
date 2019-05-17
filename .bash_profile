@@ -11,11 +11,12 @@ export IRBRC=$HOME/.rvm/rubies/$RUBY_VERSION/.irbrc # I am not using this
 export GEM_HOME=$HOME/.rvm/gems/$RUBY_VERSION@global
 export GEM_PATH=$GEM_HOME # Not sure if need this?
 
-export GOPATH=$HOME/Development/go
-export GOROOT="/usr/local/bin/go"
+export GOROOT="/usr/local/opt/go/libexec"
+export GOPATH=$HOME/Development/Go
+
+export JAVA_HOME=$(/usr/libexec/java_home -v 10)
+export GRADLE_HOME=/usr/local/bin/gradle
 
 # rvm
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-[ -s "/Users/archanasriram/.jabba/jabba.sh" ] && source "/Users/archanasriram/.jabba/jabba.sh"

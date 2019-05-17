@@ -30,7 +30,7 @@ ZSH_THEME="cloud"
 # DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
- COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -40,14 +40,23 @@ ZSH_THEME="cloud"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git bundler osx ruby rake)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 source $HOME/.bash_profile
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# Add go and RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.rvm/bin"
 
-[ -s "/Users/archanasriram/.jabba/jabba.sh" ] && source "/Users/archanasriram/.jabba/jabba.sh"
+# Add timestamp to prompt cloud theme only
+# cloud theme prompt:
+# PROMPT='%{$fg_bold[cyan]%}$ZSH_THEME_CLOUD_PREFIX %{$fg_bold[green]%}%p %{$fg[green]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+PROMPT='%{$fg_bold[cyan]%}$ZSH_THEME_CLOUD_PREFIX %{$fg_bold[cyan]%} %D{%b %f} %* %{$fg[green]%}%2/ %{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%} %{$reset_color%} %'
+
+# Add autocompletion for exercism
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+  . ~/.config/exercism/exercism_completion.zsh
+fi
+
