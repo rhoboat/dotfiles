@@ -11,7 +11,7 @@ set showmode                   "Show current mode down the bottom
 set gcr=a:blinkon0             "Disable cursor blink
 set visualbell                 "No sounds
 set autoread                   "Reload files changed outside vim
-"set foldmethod=indent          "Creates folds at indentations
+set foldmethod=indent          "Creates folds at indentations
 
 " color theme
 colorscheme Tomorrow-Night-Bright
@@ -197,14 +197,15 @@ nmap \p :ProseMode<CR>
 " ale: only run eslint linter
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'typescript': ['tsserver', 'typecheck'],
+\   'typescript': ['eslint', 'tsserver'],
 \}
 
 " ale: will try to fix with eslint javascript
 let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'css': ['prettier'],
 \   'javascript': ['eslint'],
-\   'typescript': ['tslint', 'prettier'],
+\   'typescript': ['eslint'],
 \}
 let g:ale_javascript_prettier_use_local_config = 1
 
@@ -215,6 +216,8 @@ let g:ale_fix_on_save = 1
 
 " ale: enable completion where available
 let g:ale_completion_enabled = 1
+set omnifunc=ale#completion#OmniFunc
+
 " highlights background of errors and warnings
 " green
 highlight ALEError ctermbg=22
