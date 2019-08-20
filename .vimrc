@@ -176,6 +176,10 @@ nnoremap <silent> <c-k> <c-w>k<CR>
 nnoremap <silent> <c-h> <c-w>h<CR>
 nnoremap <silent> <c-l> <c-w>l<CR>
 nnoremap <silent> <c-\> <c-w>\<CR>
+" Write all buffers before navigating from Vim to tmux pane
+let g:tmux_navigator_save_on_switch = 2
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed = 1
 
 " vimux
 nnoremap <Leader>vp :VimuxPromptCommand<CR>
