@@ -1,17 +1,11 @@
 alias vim='/usr/local/bin/vim'
 devDir="$HOME/Development"
-alias lisp='cd $devDir/courses/cs325-lisp'
-alias dev='cd $devDir/apps'
-alias work='cd ~/elastic'
-alias es='cd ~/elastic/elasticsearch'
-alias k='cd ~/elastic/kibana'
+alias sd='tmux new -s solis'
+alias dev='cd $devDir'
+alias work='cd $devDir/thorn'
+alias solis='cd $devDir/thorn/solis'
 alias nodejs='cd $devDir/nodejs/node'
 alias golang='cd $devDir/go/src'
-
-alias b='bundle exec'
-alias bg='bundle exec guard'
-
-alias grep='ggrep'
 
 alias gp='git push'
 alias gpgh='git push github'
