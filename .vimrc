@@ -242,6 +242,9 @@ let g:gitgutter_sign_removed = '・'
 let g:gitgutter_sign_removed_first_line = '^^'
 let g:gitgutter_sign_modified_removed = '~'
 
+" tsuquyomi settings
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+
 " Open current file with selected lines in github
 noremap <silent> <leader>gh V:<c-u>call OpenCurrentFileInGithub()<cr>
 xnoremap <silent> <leader>gh :<c-u>call OpenCurrentFileInGithub()<cr>
