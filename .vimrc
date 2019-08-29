@@ -2,6 +2,7 @@ set nocompatible
 execute pathogen#infect()
 
 " ================ General Config ====================
+set modeline
 set number                     "Line numbers are good
 set relativenumber
 set backspace=indent,eol,start "Allow backspace in insert mode
@@ -99,7 +100,7 @@ endif
 inoremap kj <Esc>
 
 " ,ev edits ~/.vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :split $MYVIMRC<cr>
 
 " ,sv reloads ~/.vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -230,9 +231,32 @@ highlight ALEErrorSign ctermbg=22
 highlight ALEWarning ctermbg=24
 highlight ALEWarningSign ctermbg=24
 
+" vim-prettier
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.mdx,*.json,*.graphql,*.md,*.yaml,*.html PrettierAsync
+
 " gitgutter
 let g:gitgutter_sign_added = '・'
 let g:gitgutter_sign_modified = '・'
 let g:gitgutter_sign_removed = '・'
 let g:gitgutter_sign_removed_first_line = '^^'
 let g:gitgutter_sign_modified_removed = '~'
+
+" Open current file with selected lines in github
+noremap <silent> <leader>gh V:<c-u>call OpenCurrentFileInGithub()<cr>
+xnoremap <silent> <leader>gh :<c-u>call OpenCurrentFileInGithub()<cr>
+
+function! OpenCurrentFileInGithub()
+    let file_dir = expand('%:h')
+      let git_root = system('cd ' . file_dir . '; git rev-parse --show-toplevel | tr -d "\n"')
+        let file_path = substitute(expand('%:p'), git_root . '/', '', '')
+          let branch = system('git symbolic-ref --short -q HEAD | tr -d "\n"')
+            let git_remote = system('cd ' . file_dir . '; git remote get-url origin')
+              let repo_path = matchlist(git_remote, ':\(.*\)\.')[1]
+                let url = 'https://github.com/' . repo_path . '/blob/' . branch . '/' . file_path
+                  let first_line = getpos("'<")[1]
+                    let url .= '#L' . first_line
+                      let last_line = getpos("'>")[1]
+                        if last_line != first_line | let url .= '-L' . last_line | endif
+                          call system('Firefox ' . url)
+                        endfunction
