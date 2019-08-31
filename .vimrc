@@ -2,9 +2,8 @@ set nocompatible
 execute pathogen#infect()
 
 " ================ General Config ====================
+colorscheme Tomorrow-Night-Bright "Color theme
 set modeline
-set number                     "Line numbers are good
-set relativenumber
 set backspace=indent,eol,start "Allow backspace in insert mode
 set history=1000               "Store lots of :cmdline history
 set showcmd                    "Show incomplete cmds down the bottom
@@ -14,23 +13,10 @@ set visualbell                 "No sounds
 set autoread                   "Reload files changed outside vim
 set foldmethod=indent          "Creates folds at indentations
 
-" color theme
-colorscheme Tomorrow-Night-Bright
-
 " allow buffers to exist in the background without being in a window
 set hidden
 
-" golang syntax highlighting
-"filetype off
-"filetype plugin indent off
-"set runtimepath+=$GOROOT/misc/vim
-"filetype plugin indent on
-syntax on
-
-" no swap files
-set nobackup
-set nowritebackup
-set noswapfile
+set nobackup nowritebackup noswapfile "No swap files
 
 " persistent undo
 if has('persistent_undo')
@@ -39,6 +25,21 @@ if has('persistent_undo')
   set undofile
 endif
 
+" golang syntax highlighting
+"filetype plugin indent off
+"set runtimepath+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
+
+" hybrid line numbers with toggling
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+hi LineNr ctermfg=darkgrey "default color too dark
+
 " indentation
 set autoindent
 set smartindent
@@ -46,9 +47,6 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 autocmd Filetype java setlocal shiftwidth=4 tabstop=4 expandtab
-
-filetype plugin on
-filetype indent on
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
@@ -84,8 +82,6 @@ hi Search ctermbg=170 " pink yay
 set ignorecase " Ignore case when searching...
 set smartcase " ...unless we type a capital
 
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
-set laststatus=2
 set tags=$PWD/.git/tags
 runtime macros/matchit.vim
 
@@ -105,12 +101,6 @@ nnoremap <leader>ev :split $MYVIMRC<cr>
 " ,sv reloads ~/.vimrc
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" enter makes a new line below cursor
-nnoremap <CR> o<Esc>
-
-" shift + enter makes a new line above cursor (not working)
-nnoremap <S-CR> O<Esc>
-
 " close a buffer without closing the window
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
@@ -119,8 +109,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " :nt opens NERDTree
 cnoreabbrev nt nt<c-\>esubstitute(getcmdline(), '^nt\>', 'NERDTree', '')<enter>
-map <C-e> :NERDTreeTabsToggle<CR>:NERDTreeMirrorOpen<CR>
-"locate current file in NERDTree
 map <leader>e :NERDTreeFind<CR>
 let NERDTreeShowBookmarks=1
 " let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
@@ -133,7 +121,6 @@ let NERDTreeKeepTreeInNewTab=1
 let g:NERDTreeWinSize = 35
 let g:nerdtree_tabs_open_on_gui_startup=1
 let g:nerdtree_tabs_open_on_console_startup=1
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
 "close vim if only nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd StdinReadPre * let s:std_in=1
@@ -162,8 +149,6 @@ hi link javaScriptTemplateVar Text
 hi link javaScriptTemplateString String
 " vim-jsx
 let g:jsx_ext_required = 0
-" flow
-"let g:javascript_plugin_flow = 1
 
 " fzf
 set rtp+=/usr/local/opt/fzf
@@ -187,8 +172,6 @@ nnoremap <Leader>vp :VimuxPromptCommand<CR>
 nnoremap <Leader>vl :VimuxRunLastCommand<CR>
 nnoremap <Leader>vi :VimuxInspectRunner<CR>
 
-" vi mode in tmux
-"
 " goyo for prose mode
 function! ProseMode()
   call goyo#execute(0, [])
@@ -223,13 +206,65 @@ let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 set omnifunc=ale#completion#OmniFunc
 
-" highlights background of errors and warnings
+" Tsuquyomi completion
+let g:tsuquyomi_completion_detail = 1
+autocmd FileType typescript setlocal completeopt+=menu,preview
+
+" Tsuquyomi settings
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+
+" Darken statusline background
+hi StatusLine ctermbg=136 ctermfg=236
+hi StatusLineNc ctermbg=gray ctermfg=236
+hi VertSplit ctermbg=236 ctermfg=236
+
+" ale: highlight background of errors and warnings
 " green
-highlight ALEError ctermbg=22
-highlight ALEErrorSign ctermbg=22
-" teal
-highlight ALEWarning ctermbg=24
-highlight ALEWarningSign ctermbg=24
+hi ALEError ctermbg=28 ctermfg=lightgray
+hi ALEErrorSign ctermbg=28 ctermfg=lightgray
+" blue
+hi ALEWarning ctermbg=24 ctermfg=lightgray
+hi ALEWarningSign ctermbg=24 ctermfg=lightgray
+
+" ale: show # of warnings and errors in statusline
+function! OkLinterStatus()
+  let l:counts = ale#statusline#Count(bufnr(''))
+  return l:counts.total == 0 ? 'OK' : ''
+endfunction
+
+function! WarnLinterStatus()
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:errors = l:counts.error + l:counts.style_error
+  let l:warnings = l:counts.total - l:errors
+
+  return l:warnings == 0 ? '' : printf('%dw', warnings)
+endfunction
+
+function! ErrorLinterStatus()
+  let l:counts = ale#statusline#Count(bufnr(''))
+  return l:counts.error == 0 ? '' : printf('%de', counts.error)
+endfunction
+
+set statusline=         "clear
+set statusline+=%f      "tail of the filename
+set statusline+=%y      "filetype
+set statusline+=%#ALEError# "green color
+set statusline+=%m      "modified flag
+set statusline+=%*      "normal color
+set statusline+=%r      "read only flag
+set statusline+=%=      "left/right separator
+set statusline+=%{OkLinterStatus()}
+set statusline+=%#ALEWarning#
+set statusline+=%{WarnLinterStatus()}
+set statusline+=%*      "normal color
+set statusline+=%#ALEError#
+set statusline+=%{ErrorLinterStatus()}
+set statusline+=%*      "normal color
+
+set statusline+=\ %c,   "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
+set laststatus=2        "always show status line
 
 " vim-prettier
 let g:prettier#autoformat = 0
@@ -242,24 +277,21 @@ let g:gitgutter_sign_removed = '・'
 let g:gitgutter_sign_removed_first_line = '^^'
 let g:gitgutter_sign_modified_removed = '~'
 
-" tsuquyomi settings
-autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-
 " Open current file with selected lines in github
 noremap <silent> <leader>gh V:<c-u>call OpenCurrentFileInGithub()<cr>
 xnoremap <silent> <leader>gh :<c-u>call OpenCurrentFileInGithub()<cr>
 
 function! OpenCurrentFileInGithub()
-    let file_dir = expand('%:h')
-      let git_root = system('cd ' . file_dir . '; git rev-parse --show-toplevel | tr -d "\n"')
-        let file_path = substitute(expand('%:p'), git_root . '/', '', '')
-          let branch = system('git symbolic-ref --short -q HEAD | tr -d "\n"')
-            let git_remote = system('cd ' . file_dir . '; git remote get-url origin')
-              let repo_path = matchlist(git_remote, ':\(.*\)\.')[1]
-                let url = 'https://github.com/' . repo_path . '/blob/' . branch . '/' . file_path
-                  let first_line = getpos("'<")[1]
-                    let url .= '#L' . first_line
-                      let last_line = getpos("'>")[1]
-                        if last_line != first_line | let url .= '-L' . last_line | endif
-                          call system('Firefox ' . url)
-                        endfunction
+  let file_dir = expand('%:h')
+  let git_root = system('cd ' . file_dir . '; git rev-parse --show-toplevel | tr -d "\n"')
+  let file_path = substitute(expand('%:p'), git_root . '/', '', '')
+  let branch = system('git symbolic-ref --short -q HEAD | tr -d "\n"')
+  let git_remote = system('cd ' . file_dir . '; git remote get-url origin')
+  let repo_path = matchlist(git_remote, ':\(.*\)\.')[1]
+  let url = 'https://github.com/' . repo_path . '/blob/' . branch . '/' . file_path
+  let first_line = getpos("'<")[1]
+  let url .= '#L' . first_line
+  let last_line = getpos("'>")[1]
+  if last_line != first_line | let url .= '-L' . last_line | endif
+  call system('Firefox ' . url)
+endfunction
