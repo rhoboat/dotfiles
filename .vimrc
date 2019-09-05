@@ -14,7 +14,8 @@ set autoread                   "Reload files changed outside vim
 set foldmethod=indent          "Creates folds at indentations
 set splitright                 "Open vertical splits to the right
 set splitbelow                 "Open splits to the bottom
-nnoremap ; :buffers<CR>:buffer<Space> "Choose a buffer quickly
+" Choose a buffer quickly
+nnoremap ; :buffers<CR>:buffer<Space>
 
 " Cursor settings
 let &t_SI.="\e[5 q" "SI = INSERT mode
