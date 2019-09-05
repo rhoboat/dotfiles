@@ -12,6 +12,8 @@ set gcr=a:blinkon0             "Disable cursor blink
 set visualbell                 "No sounds
 set autoread                   "Reload files changed outside vim
 set foldmethod=indent          "Creates folds at indentations
+set splitright                 "Open vertical splits to the right
+set splitbelow                 "Open splits to the bottom
 
 " Cursor settings
 let &t_SI.="\e[5 q" "SI = INSERT mode
