@@ -13,6 +13,18 @@ set visualbell                 "No sounds
 set autoread                   "Reload files changed outside vim
 set foldmethod=indent          "Creates folds at indentations
 
+" Cursor settings
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+
+"  1 -> blinking block
+"  2 -> solid block
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+
 " allow buffers to exist in the background without being in a window
 set hidden
 
