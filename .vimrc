@@ -281,10 +281,6 @@ set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2        "always show status line
 
-" vim-prettier
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.mdx,*.json,*.graphql,*.md,*.yaml,*.html PrettierAsync
-
 " gitgutter
 let g:gitgutter_sign_added = '・'
 let g:gitgutter_sign_modified = '・'
@@ -310,3 +306,8 @@ function! OpenCurrentFileInGithub()
   if last_line != first_line | let url .= '-L' . last_line | endif
   call system('Firefox ' . url)
 endfunction
+
+" Allow custom vim files
+if filereadable(".vim.custom")
+  so .vim.custom
+endif
