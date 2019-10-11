@@ -94,7 +94,7 @@ set sidescroll=1
 " search
 set incsearch " Find the next match as we type the search
 set hlsearch " Highlight searches by default
-hi Search ctermbg=170 " pink yay
+hi Search ctermbg=22 ctermfg=84 " green and red
 set ignorecase " Ignore case when searching...
 set smartcase " ...unless we type a capital
 
@@ -308,6 +308,6 @@ function! OpenCurrentFileInGithub()
 endfunction
 
 " Allow custom vim files
-if filereadable(".vim.custom")
-  so .vim.custom
+if filereadable(".vimrc.custom")
+  so .vimrc.custom
 endif
