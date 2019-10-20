@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -eu
+
+ITEM_NAME="$1"
+FIELD_NAME="$2"
+
+eval $(~/oplogin)
+
+ITEM_JSON=$(op get item "$ITEM_NAME")
+
+echo "$ITEM_JSON" | jq -je --arg field "$FIELD_NAME" \
+  '.overview.URLs[] | select(.l==$field) | .u'

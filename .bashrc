@@ -1,11 +1,9 @@
 alias vim='/usr/local/bin/vim'
-devDir="$HOME/Development"
-alias sd='tmux new -s solis'
-alias dev='cd $devDir'
-alias work='cd $devDir/thorn'
-alias solis='cd $devDir/thorn/solis'
 alias nodejs='cd $devDir/nodejs/node'
 alias golang='cd $devDir/go/src'
+
+# Load work aliases
+[[ -s "$HOME/.bash_work" ]] && source "$HOME/.bash_work"
 
 alias gp='git push'
 alias gpgh='git push github'
