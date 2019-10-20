@@ -131,17 +131,15 @@ let NERDTreeShowBookmarks=1
 let NERDTreeIgnore = ['\.keep$', '\.DS_Store$']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=0
-let NERDTreeMouseMode=2
+let NERDTreeMouseMode=3
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let g:NERDTreeWinSize = 35
-let g:nerdtree_tabs_open_on_gui_startup=1
-let g:nerdtree_tabs_open_on_console_startup=1
 "close vim if only nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" open nt when vim start with a directory
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 " makes it possible to use . operator in visual mode
 xnoremap . :normal .<CR>
