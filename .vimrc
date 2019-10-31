@@ -209,6 +209,9 @@ let g:ale_fixers = {
 \   'typescript': ['eslint'],
 \}
 let g:ale_javascript_prettier_use_local_config = 1
+" vim-prettier
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.mdx,*.json,*.graphql,*.md,*.yaml,*.html PrettierAsync
 
 " ale: always show the lefthand gutter
 let g:ale_sign_column_always = 1
