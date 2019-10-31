@@ -53,7 +53,7 @@ export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.rvm/bin"
 # Add timestamp to prompt cloud theme only
 # cloud theme prompt:
 # PROMPT='%{$fg_bold[cyan]%}$ZSH_THEME_CLOUD_PREFIX %{$fg_bold[green]%}%p %{$fg[green]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
-PROMPT='%{$fg_bold[cyan]%}$ZSH_THEME_CLOUD_PREFIX %{$fg_bold[cyan]%} %D{%b %f} %* %{$fg[green]%}%2/ %{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%} %{$reset_color%} %'
+PROMPT='%{$fg[cyan]%}$ZSH_THEME_CLOUD_PREFIX %{$fg[cyan]%} %D{%b %f} %* %{$fg[green]%}%2/ %{$fg[cyan]%}$(git_prompt_info)%{$fg[blue]%} %{$reset_color%} %'
 
 # Add autocompletion for exercism
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
