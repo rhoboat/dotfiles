@@ -2,6 +2,8 @@
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
 
 export PATH=/usr/local/sbin:$PATH
+export TERM="screen-256color"
+
 export MONGO_PATH=/usr/local/mongodb
 export PATH=$PATH:$MONGO_PATH/bin
 
@@ -13,9 +15,6 @@ export GEM_PATH=$GEM_HOME # Not sure if need this?
 
 export GOROOT="/usr/local/opt/go/libexec"
 export GOPATH=$HOME/Development/Go
-
-export JAVA_HOME=$(/usr/libexec/java_home -v 10)
-export GRADLE_HOME=/usr/local/bin/gradle
 
 # rvm
 
