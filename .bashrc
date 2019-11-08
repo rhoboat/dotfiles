@@ -1,4 +1,6 @@
+devDir="$HOME/Development"
 alias vim='/usr/local/bin/vim'
+alias dotfiles='cd $devDir/dotfiles'
 alias nodejs='cd $devDir/nodejs/node'
 alias golang='cd $devDir/go/src'
 

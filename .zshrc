@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="cloud"
+ZSH_THEME="gozilla"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -50,13 +50,24 @@ source $HOME/.bash_profile
 # Add go and RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.rvm/bin"
 
-# Add timestamp to prompt cloud theme only
-# cloud theme prompt:
-# PROMPT='%{$fg_bold[cyan]%}$ZSH_THEME_CLOUD_PREFIX %{$fg_bold[green]%}%p %{$fg[green]%}%c %{$fg_bold[cyan]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
-PROMPT='%{$fg[cyan]%}$ZSH_THEME_CLOUD_PREFIX %{$fg[cyan]%} %D{%b %f} %* %{$fg[green]%}%2/ %{$fg[cyan]%}$(git_prompt_info)%{$fg[blue]%} %{$reset_color%} %'
+# gozilla theme:
+PROMPT='%{$fg_bold[red]%}%* %{$fg[blue]%}%c %{$fg_bold[grey]%}$(git_prompt_info)%{$fg[blue]%} % %{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_PREFIX="["
+ZSH_THEME_GIT_PROMPT_SUFFIX="]"
+ZSH_THEME_GIT_PROMPT_DIRTY=""
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+RPROMPT='$(git_prompt_status)%{$reset_color%}'
+
+ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[cyan]%} ✈"
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[yellow]%} ✭"
+ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✗"
+ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%} ➦"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[magenta]%} ✂"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[grey]%} ✱"
 
 # Add autocompletion for exercism
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   . ~/.config/exercism/exercism_completion.zsh
 fi
-
