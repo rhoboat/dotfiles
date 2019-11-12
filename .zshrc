@@ -65,7 +65,7 @@ ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[yellow]%} ✭"
 ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✗"
 ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%} ➦"
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[magenta]%} ✂"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[grey]%} ✱"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[grey]%} ✱"
 
 # Add autocompletion for exercism
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
