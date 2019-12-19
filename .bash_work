@@ -3,9 +3,13 @@ alias dev='cd $devDir'
 alias dd='tmux new -s work'
 alias work='cd $devDir/thorn/solis'
 
-alias dockerstop='docker stop --time 0 `docker ps --format "{{.ID}}" --last 1`'
+alias run='BROWSER=Google\ Chrome make run'
+alias typecheck='yarn tsc --noEmit --preserveWatchOutput'
+alias compile='yarn tsc --diagnostics --noEmit'
 
 alias youtube-mp3='youtube-dl --extract-audio --audio-format mp3'
+
+alias dockerstop='docker stop --time 0 `docker ps --format "{{.ID}}" --last 1`'
 
 alias tor_proxy='docker run -d --rm --name tor -p 8123:8123 -p 9050:9050 thorn-tor-proxy && echo "Tor proxy running at http://localhost:8123 and via SOCKS at 9050"'
 
