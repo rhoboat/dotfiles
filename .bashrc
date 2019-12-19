@@ -3,6 +3,8 @@ alias vim='/usr/local/bin/vim'
 alias dotfiles='cd $devDir/dotfiles'
 alias nodejs='cd $devDir/nodejs/node'
 alias golang='cd $devDir/go/src'
+alias pgstart='pg_ctl -D /usr/local/var/postgres start'
+alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
 
 # Load work aliases
 [[ -s "$HOME/.bash_work" ]] && source "$HOME/.bash_work"
