@@ -2,7 +2,6 @@ devDir="$HOME/Development"
 alias dev='cd $devDir'
 alias dd='tmux new -s work'
 alias work='cd $devDir/thorn/solis'
-export GOOGLE_GEOCODING_KEY=AIzaSyDgSOfomlslY9ezEETOJaBNjB1Bge6HYBw
 
 alias run='BROWSER=Google\ Chrome make run'
 alias typecheck='yarn tsc --noEmit --preserveWatchOutput'
