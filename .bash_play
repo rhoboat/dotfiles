@@ -1,0 +1,4 @@
+devDir="$HOME/Development"
+alias dev='cd $devDir'
+alias dp='tmux new -s play'
+alias play='cd $devDir/play'

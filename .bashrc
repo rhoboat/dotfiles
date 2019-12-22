@@ -9,6 +9,9 @@ alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
 # Load work aliases
 [[ -s "$HOME/.bash_work" ]] && source "$HOME/.bash_work"
 
+# Load play aliases
+[[ -s "$HOME/.bash_play" ]] && source "$HOME/.bash_play"
+
 alias gp='git push'
 alias gpgh='git push github'
 alias gu='git pull'

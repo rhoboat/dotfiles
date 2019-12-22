@@ -1,0 +1,11 @@
+# vim: set ft=tmux:
+
+selectp -t 0    # select the first pane, run vim
+send-keys 'work' 'C-m'
+send-keys 'vim' 'C-m'
+splitw -h -p 40       # split it into two halves
+
+selectp -t 1          # select the second pane
+splitw -v -p 70       # split it into two halves
+
+selectp -t 0          # go back to the first pane
