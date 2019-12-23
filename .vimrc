@@ -312,3 +312,6 @@ endfunction
 if filereadable(".vimrc.custom")
   so .vimrc.custom
 endif
+
+" Rust auto format
+let g:rustfmt_autosave = 1
