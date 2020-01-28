@@ -195,7 +195,7 @@ endfunction
 command! ProseMode call ProseMode()
 nmap \p :ProseMode<CR>
 
-" ale: only run eslint linter
+" ale: only run eslint linter (picks up tslint.yaml too)
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint', 'tsserver'],
