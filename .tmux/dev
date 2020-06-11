@@ -2,10 +2,15 @@
 
 selectp -t 0          # select the first pane, run vim
 send-keys 'work' 'C-m'
-send-keys 'vim' 'C-m'
+send-keys 'vim -S SavedSession.vim' 'C-m'
 splitw -h -p 40       # split it into two halves
 
 selectp -t 1          # select the second pane
+send-keys 'work' 'C-m'
+send-keys 'gs' 'C-m'  # run git status
+
 splitw -v -p 70       # split it into two halves
+send-keys 'work' 'C-m'
+send-keys 'gs' 'C-m'  # run git status
 
 selectp -t 0          # go back to the first pane

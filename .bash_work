@@ -1,7 +1,7 @@
 devDir="$HOME/Development"
 alias dev='cd $devDir'
 alias dd='tmux new -s work'
-alias work='cd $devDir/thorn/solis'
+alias work='cd $devDir/cloud-nuke'
 
 alias run='BROWSER=Google\ Chrome make run'
 alias typecheck='yarn tsc --noEmit --preserveWatchOutput'
