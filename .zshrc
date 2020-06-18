@@ -51,7 +51,7 @@ source $HOME/.bash_profile
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.rvm/bin"
 
 # gozilla theme:
-PROMPT='%{$fg_bold[red]%}%* %{$fg[blue]%}%c %{$fg_bold[grey]%}$(git_prompt_info)%{$fg[blue]%} % %{$reset_color%}'
+PROMPT='%{$fg_bold[red]%}%* %{$fg[blue]%}%(5~|%-1~/…/%1>>%3~%<</%1>>%2~%<</%1~|%4~) %{$fg_bold[grey]%}$(git_prompt_info)%{$fg[blue]%} % %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="["
 ZSH_THEME_GIT_PROMPT_SUFFIX="]"
