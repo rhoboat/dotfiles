@@ -40,7 +40,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler osx ruby rake)
+plugins=(git bundler osx ruby rake shrink-path)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -51,7 +51,9 @@ source $HOME/.bash_profile
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.rvm/bin"
 
 # gozilla theme:
-PROMPT='%{$fg_bold[red]%}%* %{$fg[blue]%}%(5~|%-1~/…/%1>>%3~%<</%1>>%2~%<</%1~|%4~) %{$fg_bold[grey]%}$(git_prompt_info)%{$fg[blue]%} % %{$reset_color%}'
+# PROMPT='%{$fg_bold[red]%}%* %{$fg[blue]%}%(5~|%-1~/…/%1>>%3~%<</%1>>%2~%<</%1~|%4~) %{$fg_bold[grey]%}$(git_prompt_info)%{$fg[blue]%} % %{$reset_color%}'
+setopt prompt_subst
+PROMPT='%{$fg_bold[red]%}%* %{$fg[blue]%}$(shrink_path -f) %{$fg_bold[grey]%}$(git_prompt_info)%{$fg[blue]%} % %{$reset_color%}'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="["
 ZSH_THEME_GIT_PROMPT_SUFFIX="]"
