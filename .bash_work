@@ -17,16 +17,5 @@ alias cerebro='docker run --rm -d -p 9090:9000 yannart/cerebro'
 
 alias docker_reclaim='docker rm $(docker ps -q -f "status=exited") && docker rmi $(docker images -q -f "dangling=true")'
 
-alias oplogin='eval $(~/oplogin)'
-alias prod='~/opget solis-prod es'
-alias stag='~/opget solis-staging es'
-alias stag-admin='~/opget solis-staging-admin es'
-
-alias aws_prod='run_as_aws aws-thorn-production'
-alias aws_staging='run_as_aws aws-thorn-staging'
-alias aws_solis_prod='run_as_aws aws-thorn-solis-production'
-alias aws_solis_staging='run_as_aws aws-thorn-solis-development'
-
-alias k='aws_prod kubectl'
-alias kdash='aws_prod kubedash'
-alias dockerlogin='$(run_as_aws aws-thorn-production aws ecr get-login --no-include-email --region us-east-1)'
+alias awsauth='eval $(pass aws-env-vars)'
+alias awsauthmfa='eval $(pass aws-env-vars-mfa)'

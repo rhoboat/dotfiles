@@ -8,3 +8,4 @@ export GOROOT="/usr/local/opt/go/libexec"
 export GOPATH=$HOME/Development/Go
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.tgenv/bin:$PATH"

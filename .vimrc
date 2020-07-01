@@ -199,6 +199,7 @@ nmap \p :ProseMode<CR>
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint', 'tsserver'],
+\   'go': ['gopls'],
 \}
 
 " ale: will try to fix with eslint javascript
@@ -315,3 +316,12 @@ endif
 
 " Rust auto format
 let g:rustfmt_autosave = 1
+
+" :BufOnly will now clear all buffers but the current one
+command! BufOnly execute '%bdelete|edit #|normal `"'
+
+" terraform fmt will run on save on terragrunt.hcl files
+au! BufNewFile,BufRead terragrunt.hcl set filetype=terraform syntax=terraform
+
+" run GoImports to update the imports on save
+let g:go_fmt_command = "goimports"
