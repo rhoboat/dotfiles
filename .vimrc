@@ -320,8 +320,12 @@ let g:rustfmt_autosave = 1
 " :BufOnly will now clear all buffers but the current one
 command! BufOnly execute '%bdelete|edit #|normal `"'
 
-" terraform fmt will run on save on terragrunt.hcl files
-au! BufNewFile,BufRead terragrunt.hcl set filetype=terraform syntax=terraform
+" vim-terraform setting
+let g:terraform_fmt_on_save=1
+
+" use vim-terragrunt to run hclfmt on hcl files
+" Set this to 0 to turn it off. On by default
+"let g:hcl_fmt_autosave = 1
 
 " run GoImports to update the imports on save
 let g:go_fmt_command = "goimports"
