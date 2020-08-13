@@ -62,7 +62,6 @@ set smartindent
 set expandtab
 set tabstop=2
 set shiftwidth=2
-autocmd Filetype java setlocal shiftwidth=4 tabstop=4 expandtab
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
@@ -196,6 +195,7 @@ command! ProseMode call ProseMode()
 nmap \p :ProseMode<CR>
 
 " ale: only run eslint linter (picks up tslint.yaml too)
+" \   'go': ['gopls'], " this autofills, which is horrible
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint', 'tsserver'],
@@ -221,6 +221,10 @@ let g:ale_fix_on_save = 1
 
 " ale: enable completion where available
 let g:ale_completion_enabled = 1
+
+let g:ale_lint_on_text_changed = 'never'
+
+" ale trigger autocompletion manually with <C-x><C-o>
 set omnifunc=ale#completion#OmniFunc
 
 " Tsuquyomi completion
@@ -229,11 +233,6 @@ autocmd FileType typescript setlocal completeopt+=menu,preview
 
 " Tsuquyomi settings
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-
-" Darken statusline background
-hi StatusLine ctermbg=136 ctermfg=236
-hi StatusLineNc ctermbg=gray ctermfg=236
-hi VertSplit ctermbg=236 ctermfg=236
 
 " ale: highlight background of errors and warnings
 " green
@@ -262,10 +261,15 @@ function! ErrorLinterStatus()
   return l:counts.error == 0 ? '' : printf('%de', counts.error)
 endfunction
 
+" Darken statusline background
+hi StatusLine ctermbg=136 ctermfg=236
+hi StatusLineNc ctermbg=gray ctermfg=236
+hi VertSplit ctermbg=236 ctermfg=236
+
 set statusline=         "clear
 set statusline+=%f      "tail of the filename
 set statusline+=%y      "filetype
-set statusline+=%#ALEError# "green color
+set statusline+=%#ALEError# "green color (defined above)
 set statusline+=%m      "modified flag
 set statusline+=%*      "normal color
 set statusline+=%r      "read only flag
@@ -328,4 +332,6 @@ let g:terraform_fmt_on_save=1
 "let g:hcl_fmt_autosave = 1
 
 " run GoImports to update the imports on save
-let g:go_fmt_command = "goimports"
+" let g:go_fmt_command = "goimports"
+" Enabled by default
+"let g:go_code_completion_enabled = 1
