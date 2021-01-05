@@ -11,3 +11,8 @@ export PATH="$PATH:/usr/local/bin/go"
 
 export GOROOT="/usr/local/opt/go/libexec"
 export GOPATH=$HOME/Development/Go
+
+# Commands to run
+
+# Run this to allow Mac OS to install apps from anywhere
+# sudo spctl --master-disable
