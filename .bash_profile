@@ -5,7 +5,6 @@ export PATH=/usr/local/sbin:$PATH
 export TERM="screen-256color"
 
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.tgenv/bin:$PATH"
 
 export PATH="$PATH:/usr/local/bin/go"
 export PATH="$HOME/Library/Application Support/Mozilla/NativeMessagingHosts/:$PATH"
@@ -26,3 +25,6 @@ if [[ -f "~/.gnupg/.gpg-agent-info" && -n "$(pgrep gpg-agent)" ]]; then
 else
   eval $(eval $(gpg-agent --daemon --options ~/.gnupg/gpg-agent.conf))
 fi
+
+# Export github personal access token
+export GITHUB_OAUTH_TOKEN=$(pass github-oauth-token)
