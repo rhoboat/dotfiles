@@ -17,10 +17,16 @@ set splitbelow                 "Open splits to the bottom
 " Choose a buffer quickly
 nnoremap ; :buffers<CR>:buffer<Space>
 
+noremap <leader>p <esc>:set paste!<cr>i
+nnoremap <leader>p :set paste!<cr>
+
+
 " Cursor settings
 let &t_SI.="\e[5 q" "SI = INSERT mode
 let &t_SR.="\e[4 q" "SR = REPLACE mode
 let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+set cursorline
+set cursorcolumn
 
 "  1 -> blinking block
 "  2 -> solid block
@@ -205,14 +211,18 @@ let g:ale_linters = {
 " ale: will try to fix with eslint javascript
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'css': ['prettier'],
+"\   'css': ['prettier'],
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
+\   'go': ['goimports'],
 \}
-let g:ale_javascript_prettier_use_local_config = 1
+"let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_go_goimports_executable = 1
 " vim-prettier
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.mdx,*.json,*.graphql,*.md,*.yaml,*.html PrettierAsync
+"let g:prettier#autoformat = 0
+" Don't use ,p for prettier, it's for paste
+"nmap <Leader>py <Plug>(Prettier)
+"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.mdx,*.json,*.graphql,*.md,*.yaml,*.html PrettierAsync
 
 " ale: always show the lefthand gutter
 let g:ale_sign_column_always = 1
@@ -293,25 +303,6 @@ let g:gitgutter_sign_modified = '・'
 let g:gitgutter_sign_removed = '・'
 let g:gitgutter_sign_removed_first_line = '^^'
 let g:gitgutter_sign_modified_removed = '~'
-
-" Open current file with selected lines in github
-noremap <silent> <leader>gh V:<c-u>call OpenCurrentFileInGithub()<cr>
-xnoremap <silent> <leader>gh :<c-u>call OpenCurrentFileInGithub()<cr>
-
-function! OpenCurrentFileInGithub()
-  let file_dir = expand('%:h')
-  let git_root = system('cd ' . file_dir . '; git rev-parse --show-toplevel | tr -d "\n"')
-  let file_path = substitute(expand('%:p'), git_root . '/', '', '')
-  let branch = system('git symbolic-ref --short -q HEAD | tr -d "\n"')
-  let git_remote = system('cd ' . file_dir . '; git remote get-url origin')
-  let repo_path = matchlist(git_remote, ':\(.*\)\.')[1]
-  let url = 'https://github.com/' . repo_path . '/blob/' . branch . '/' . file_path
-  let first_line = getpos("'<")[1]
-  let url .= '#L' . first_line
-  let last_line = getpos("'>")[1]
-  if last_line != first_line | let url .= '-L' . last_line | endif
-  call system('Firefox ' . url)
-endfunction
 
 " Allow custom vim files
 if filereadable(".vimrc.custom")
