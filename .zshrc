@@ -76,3 +76,9 @@ fi
 
 # initialize pyenv
 eval "$(pyenv init -)"
+
+# This might fix the no matches found issue when I try to use regex in zsh
+unsetopt nomatch
+
+# Starting fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

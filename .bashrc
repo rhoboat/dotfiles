@@ -32,3 +32,5 @@ alias gunstage='git reset HEAD'
 alias gign='git ls-files -o -i --exclude-standard'
 alias gpr='f() { gco -q master; git branch -Dq pr/$1; git fetch github pull/$1/head:pr/$1 && gco -q pr/$1; };f'
 alias gprm='f() { gco -q master; git branch -Dq mine/pr/$1; git fetch mine pull/$1/head:mine/pr/$1 && gco -q mine/pr/$1; };f'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
