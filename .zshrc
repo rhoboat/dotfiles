@@ -82,3 +82,9 @@ unsetopt nomatch
 
 # Starting fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Created by `pipx` on 2021-07-09 15:45:45
+export PATH="$PATH:/Users/rhozen/.local/bin"
+
+# Use asdf
+. /usr/local/opt/asdf/libexec/asdf.sh
