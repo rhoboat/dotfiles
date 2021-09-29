@@ -212,6 +212,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 "\   'css': ['prettier'],
+\   'bash': ['shfmt'],
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
 \   'go': ['goimports'],
