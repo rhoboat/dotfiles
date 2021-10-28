@@ -1,19 +1,30 @@
+# ~/.bash_profile is sourced by ~/.zshrc
 [[ -s "$HOME/.bashrc" ]] && source "$HOME/.bashrc" # Load aliases
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
 
-export PATH=/usr/local/sbin:$PATH
 export TERM="screen-256color"
 
+# Export github personal access token
+export GITHUB_OAUTH_TOKEN=$(pass github-oauth-token)
+
+# Prepend to PATH
+export PATH=/usr/local/sbin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
-
-export PATH="$PATH:/usr/local/bin/go"
 export PATH="$HOME/Library/Application Support/Mozilla/NativeMessagingHosts/:$PATH"
+# Use the Homebrew version of git rather than system installed git
+export PATH="/usr/local/bin:$PATH"
+# Pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
 
+
+# Append to PATH
+export PATH="$PATH:/usr/local/bin/go"
+
+# Set GOROOT and GOPATH here.
+# They are appended to PATH in ~/.zshrc
 export GOROOT="/usr/local/opt/go/libexec"
 export GOPATH=$HOME/Development/Go
 
-# Use the Homebrew version of git rather than system installed git
-export PATH="/usr/local/bin:${PATH}"
 
 # Run this to allow Mac OS to install apps from anywhere
 # sudo spctl --master-disable
@@ -25,6 +36,3 @@ if [[ -f "~/.gnupg/.gpg-agent-info" && -n "$(pgrep gpg-agent)" ]]; then
 else
   eval $(eval $(gpg-agent --daemon --options ~/.gnupg/gpg-agent.conf))
 fi
-
-# Export github personal access token
-export GITHUB_OAUTH_TOKEN=$(pass github-oauth-token)

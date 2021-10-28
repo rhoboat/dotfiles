@@ -47,9 +47,6 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 source $HOME/.bash_profile
 
-# Add go and RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.rvm/bin"
-
 # gozilla theme:
 # PROMPT='%{$fg_bold[red]%}%* %{$fg[blue]%}%(5~|%-1~/…/%1>>%3~%<</%1>>%2~%<</%1~|%4~) %{$fg_bold[grey]%}$(git_prompt_info)%{$fg[blue]%} % %{$reset_color%}'
 setopt prompt_subst
@@ -86,5 +83,8 @@ unsetopt nomatch
 # Created by `pipx` on 2021-07-09 15:45:45
 export PATH="$PATH:/Users/rhozen/.local/bin"
 
-# Use asdf
+# Add go and RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.rvm/bin"
+
+# Use asdf via ZSH and Homebrew
 . /usr/local/opt/asdf/libexec/asdf.sh
