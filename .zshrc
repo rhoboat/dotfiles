@@ -40,7 +40,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler osx ruby rake shrink-path)
+plugins=(git bundler macos ruby rake shrink-path)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,9 +70,6 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg_bold[grey]%} ✱"
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   . ~/.config/exercism/exercism_completion.zsh
 fi
-
-# initialize pyenv
-eval "$(pyenv init -)"
 
 # This might fix the no matches found issue when I try to use regex in zsh
 unsetopt nomatch
