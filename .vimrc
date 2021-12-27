@@ -3,6 +3,7 @@ execute pathogen#infect()
 
 " ================ General Config ====================
 colorscheme Tomorrow-Night-Bright "Color theme
+colorscheme pyte                  "Light mode color theme
 set modeline
 set backspace=indent,eol,start "Allow backspace in insert mode
 set history=1000               "Store lots of :cmdline history
