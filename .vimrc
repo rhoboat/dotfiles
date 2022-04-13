@@ -3,7 +3,7 @@ execute pathogen#infect()
 
 " ================ General Config ====================
 colorscheme Tomorrow-Night-Bright "Color theme
-colorscheme pyte                  "Light mode color theme
+"colorscheme pyte                  "Light mode color theme
 set modeline
 set backspace=indent,eol,start "Allow backspace in insert mode
 set history=1000               "Store lots of :cmdline history
@@ -70,8 +70,8 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
-" Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
+" Display eol, tabs and trailing spaces visually
+set list listchars=eol:¬,tab:▸·,trail:·
 
 set wrap "wrap lines
 set linebreak "Wrap lines at convenient points
@@ -127,7 +127,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Autoremove trailing whitespace on :w
-autocmd BufWritePre * :%s/\s\+$//e
+"autocmd BufWritePre * :%s/\s\+$//e
 
 " :nt opens NERDTree
 cnoreabbrev nt nt<c-\>esubstitute(getcmdline(), '^nt\>', 'NERDTree', '')<enter>
