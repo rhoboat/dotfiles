@@ -218,6 +218,8 @@ let g:ale_fixers = {
 \   'typescript': ['eslint'],
 \   'go': ['goimports'],
 \   'python': ['yapf'],
+\   'terraform': ['terraform'],
+\   'hcl': ['terraform'],
 \}
 "let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_go_goimports_executable = 1
