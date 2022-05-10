@@ -217,6 +217,7 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint'],
 \   'go': ['goimports'],
+\   'python': ['yapf'],
 \}
 "let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_go_goimports_executable = 1
