@@ -9,32 +9,34 @@ set backspace=indent,eol,start "Allow backspace in insert mode
 set history=1000               "Store lots of :cmdline history
 set showcmd                    "Show incomplete cmds down the bottom
 set showmode                   "Show current mode down the bottom
-set gcr=a:blinkon0             "Disable cursor blink
 set visualbell                 "No sounds
 set autoread                   "Reload files changed outside vim
 set foldmethod=indent          "Creates folds at indentations
 set splitright                 "Open vertical splits to the right
 set splitbelow                 "Open splits to the bottom
+
 " Choose a buffer quickly
 nnoremap ; :buffers<CR>:buffer<Space>
 
+" Switch between paste modes with ,p
 noremap <leader>p <esc>:set paste!<cr>i
 nnoremap <leader>p :set paste!<cr>
 
+" Yank from cursor to the end of line.
+nnoremap Y y$
 
 " Cursor settings
-let &t_SI.="\e[5 q" "SI = INSERT mode
-let &t_SR.="\e[4 q" "SR = REPLACE mode
-let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
-set cursorline
-set cursorcolumn
-
 "  1 -> blinking block
 "  2 -> solid block
 "  3 -> blinking underscore
 "  4 -> solid underscore
 "  5 -> blinking vertical bar
 "  6 -> solid vertical bar
+let &t_SI.="\e[6 q" "SI = INSERT mode
+let &t_SR.="\e[4 q" "SR = REPLACE mode
+let &t_EI.="\e[2 q" "EI = NORMAL mode
+set cursorline
+set cursorcolumn
 
 " allow buffers to exist in the background without being in a window
 set hidden
