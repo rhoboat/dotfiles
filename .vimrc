@@ -331,7 +331,7 @@ let g:go_fmt_command = "gofmt"
 " Autosave is on by default anyway
 let g:go_fmt_autosave = 1
 let g:go_fmt_options = {
-  \ 'gofmt': '-s', " Try to simplify code
+  \ 'gofmt': '-s',
   "\ 'goimports': '-local mycompany.com',
   \ }
 " Enabled by default
