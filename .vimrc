@@ -18,10 +18,6 @@ set splitbelow                 "Open splits to the bottom
 " Choose a buffer quickly
 nnoremap ; :buffers<CR>:buffer<Space>
 
-" Switch between paste modes with ,p
-noremap <leader>p <esc>:set paste!<cr>i
-nnoremap <leader>p :set paste!<cr>
-
 " Yank from cursor to the end of line.
 nnoremap Y y$
 
@@ -68,8 +64,9 @@ hi LineNr ctermfg=darkgrey "default color too dark
 " indentation
 set autoindent
 set smartindent
-set expandtab
+set expandtab " use spaces
 set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 
 " Display eol, tabs and trailing spaces visually
@@ -208,7 +205,6 @@ nmap \p :ProseMode<CR>
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint', 'tsserver'],
-\   'go': ['gopls'],
 \}
 
 " ale: will try to fix with eslint javascript
@@ -234,7 +230,7 @@ let g:ale_go_goimports_executable = 1
 " ale: always show the lefthand gutter
 let g:ale_sign_column_always = 1
 " ale: fix files automatically on save
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 
 " ale: enable completion where available
 let g:ale_completion_enabled = 1
@@ -329,7 +325,14 @@ let g:terraform_fmt_on_save=1
 " Set this to 0 to turn it off. On by default
 "let g:hcl_fmt_autosave = 1
 
-" run GoImports to update the imports on save
-" let g:go_fmt_command = "goimports"
+" vim-go bundle settings
+" By default it uses gopls, which I don't want.
+let g:go_fmt_command = "gofmt"
+" Autosave is on by default anyway
+let g:go_fmt_autosave = 1
+let g:go_fmt_options = {
+  \ 'gofmt': '-s', " Try to simplify code
+  "\ 'goimports': '-local mycompany.com',
+  \ }
 " Enabled by default
 "let g:go_code_completion_enabled = 1
