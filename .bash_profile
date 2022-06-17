@@ -24,6 +24,8 @@ export PATH="$PATH:/usr/local/bin/go"
 # They are appended to PATH in ~/.zshrc
 export GOROOT="/usr/local/opt/go/libexec"
 export GOPATH=$HOME/Development/Go
+# Stop that frustrating error when running go get
+export GOPRIVATE=github.com/gruntwork-io
 
 # Run this to allow Mac OS to install apps from anywhere
 # sudo spctl --master-disable

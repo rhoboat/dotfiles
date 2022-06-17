@@ -34,3 +34,16 @@ alias gpr='f() { gco -q master; git branch -Dq pr/$1; git fetch github pull/$1/h
 alias gprm='f() { gco -q master; git branch -Dq mine/pr/$1; git fetch mine pull/$1/head:mine/pr/$1 && gco -q mine/pr/$1; };f'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function rgsed() {
+  local -r lookup="$1"
+  local -r replace="$2"
+
+  rg "$lookup" --files-with-matches | xargs sed -i '' "s|$lookup|$replace|g"
+}
+
+function del_origin_remote_tracking_branches() {
+  local -r remote="$1"
+
+  git branch -a | grep "$remote" | grep -v " -> " | sed "s/remotes\///g" | xargs git branch -rd
+}
