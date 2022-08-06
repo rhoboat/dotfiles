@@ -10,6 +10,8 @@ alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
 # Load play aliases
 [[ -s "$HOME/.bash_play" ]] && source "$HOME/.bash_play"
 
+alias gra='f() { git remote add github $(git remote get-url origin); };f'
+alias grv='git remote -v'
 alias gp='git push'
 alias gpgh='git push github'
 alias gu='git pull'
@@ -25,13 +27,11 @@ alias gas='git add --all && git status'
 alias gb='git branch'
 alias gss='git show --stat --oneline'
 alias gls='git ls-files'
-alias gra='f() { git remote add github $(git remote get-url origin); };f'
-alias grr='git remote rename origin github'
-alias grv='git remote -v'
 alias gunstage='git reset HEAD'
 alias gign='git ls-files -o -i --exclude-standard'
 alias gpr='f() { gco -q master; git branch -Dq pr/$1; git fetch github pull/$1/head:pr/$1 && gco -q pr/$1; };f'
 alias gprm='f() { gco -q master; git branch -Dq mine/pr/$1; git fetch mine pull/$1/head:mine/pr/$1 && gco -q mine/pr/$1; };f'
+alias gcleanup='git fetch && git remote prune github && git remote prune origin'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
