@@ -62,7 +62,7 @@ augroup END
 hi LineNr ctermfg=darkgrey "default color too dark
 
 " indentation
-set autoindent
+"set autoindent " Turning this off defaults tabs to spaces in yaml files
 set smartindent
 set expandtab " use spaces
 set tabstop=2
