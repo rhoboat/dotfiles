@@ -6,7 +6,7 @@ alias work='cd $devDir/'
 alias youtube-mp3='youtube-dl --extract-audio --audio-format mp3'
 
 alias dockerstop='docker stop --time 0 `docker ps --format "{{.ID}}" --last 1`'
-alias docker_reclaim='docker rm $(docker ps -q -f "status=exited") && docker rmi $(docker images -q -f "dangling=true")'
+alias docker_reclaim='($foo=docker ps -q -f "status=exited"; [[ -n $foo ]] && docker rm $foo || true) && ($bar=docker images -q -f "dangling=true"; [[ -n $bar ]] && docker rmi $bar)'
 
 alias awsauth='eval $(pass aws-env-vars)'
 alias awsauthmfa='eval $(pass aws-env-vars-mfa)'

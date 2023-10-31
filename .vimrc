@@ -1,4 +1,4 @@
-set nocompatible
+"set nocompatible
 execute pathogen#infect()
 
 " ================ General Config ====================
@@ -336,3 +336,14 @@ let g:go_fmt_options = {
   \ }
 " Enabled by default
 "let g:go_code_completion_enabled = 1
+
+" Support syntax highlighting for nunjucks files
+au BufRead,BufNewFile *.njk setfiletype html
+
+" light mode: https://stackoverflow.com/a/15095377/1143931
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
