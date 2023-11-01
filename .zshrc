@@ -84,4 +84,4 @@ export PATH="$PATH:/Users/rhozen/.local/bin"
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.rvm/bin"
 
 # Use asdf via ZSH and Homebrew
-. /usr/local/opt/asdf/libexec/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh

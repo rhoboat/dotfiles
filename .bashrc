@@ -1,17 +1,9 @@
 devDir="$HOME/Development"
-alias vim='/usr/local/bin/vim'
+# Now using homebrew installation of vim, not the below.
+#alias vim='/usr/local/bin/vim'
 alias dotf='cd $devDir/dotfiles'
 alias pgstart='pg_ctl -D /usr/local/var/postgres start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
-
-# Load work aliases
-[[ -s "$HOME/.bash_work" ]] && source "$HOME/.bash_work"
-
-# Load play aliases
-[[ -s "$HOME/.bash_play" ]] && source "$HOME/.bash_play"
-
-# AWS Vault Aliases
-alias awsin='f() { aws-vault login $1 -d12h -s | pbcopy; };f'
 
 # Git Aliases
 alias gra='f() { git remote add github $(git remote get-url origin); };f'
