@@ -156,7 +156,10 @@ let g:lisp_rainbow=1
 
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+" MacOSX/Linux setting:
 " let g:ctrlp_user_command = 'find %s -type f
+let g:ctrlp_working_path_mode = 'wra'
+" ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " a reversed cursor
@@ -347,3 +350,7 @@ if &term =~ '256color'
   " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
   set t_ut=
 endif
+
+" vim-devicons for nerdtree filetypes
+set encoding=utf8 "allow showing glyphs
+set guifont=DejaVuSansM\ Nerd\ Font:h11 "fontname:fontsize

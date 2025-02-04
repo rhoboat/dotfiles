@@ -3,6 +3,9 @@ alias vim='/usr/local/bin/vim'
 alias dotf='cd $devDir/dotfiles'
 alias pgstart='pg_ctl -D /usr/local/var/postgres start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
+alias youtube-mp3='youtube-dl --extract-audio --audio-format mp3'
+alias dockerstop='docker stop --time 0 `docker ps --format "{{.ID}}" --last 1`'
+alias docker_reclaim='($foo=docker ps -q -f "status=exited"; [[ -n $foo ]] && docker rm $foo || true) && ($bar=docker images -q -f "dangling=true"; [[ -n $bar ]] && docker rmi $bar)'
 
 # Load work aliases
 [[ -s "$HOME/.bash_work" ]] && source "$HOME/.bash_work"

@@ -12,16 +12,6 @@
 	<true/>
 	<key>AlternateMouseScroll</key>
 	<true/>
-	<key>AppleAntiAliasingThreshold</key>
-	<integer>1</integer>
-	<key>ApplePressAndHoldEnabled</key>
-	<false/>
-	<key>AppleScrollAnimationEnabled</key>
-	<integer>0</integer>
-	<key>AppleSmoothFixedFontsSizeThreshold</key>
-	<integer>1</integer>
-	<key>AppleWindowTabbingMode</key>
-	<string>manual</string>
 	<key>AutoHideTmuxClientSession</key>
 	<true/>
 	<key>BellRateLimit</key>
@@ -197,7 +187,7 @@
 			<key>AWDS Tab Option</key>
 			<string>Recycle</string>
 			<key>AWDS Window Directory</key>
-			<string>~/Development</string>
+			<string>~/Movies</string>
 			<key>AWDS Window Option</key>
 			<string>Yes</string>
 			<key>Allow Title Setting</key>
@@ -947,7 +937,7 @@
 			<key>Title Components</key>
 			<integer>34</integer>
 			<key>Transparency</key>
-			<real>0.30117194327797697</real>
+			<real>0.10366392151458409</real>
 			<key>Unicode Version</key>
 			<integer>9</integer>
 			<key>Unlimited Scrollback</key>
@@ -983,7 +973,7 @@
 			<key>AWDS Tab Option</key>
 			<string>Recycle</string>
 			<key>AWDS Window Directory</key>
-			<string>~/Development</string>
+			<string>~/Movies</string>
 			<key>AWDS Window Option</key>
 			<string>Yes</string>
 			<key>Allow Title Setting</key>
@@ -1729,7 +1719,7 @@
 			<key>Title Components</key>
 			<integer>34</integer>
 			<key>Transparency</key>
-			<real>0.30001558344414891</real>
+			<real>0.10191072504571141</real>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
