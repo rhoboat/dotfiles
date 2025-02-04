@@ -131,9 +131,16 @@ map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 " :nt opens NERDTree
 cnoreabbrev nt nt<c-\>esubstitute(getcmdline(), '^nt\>', 'NERDTree', '')<enter>
 map <leader>e :NERDTreeFind<CR>
+let NERDTreeHighlightCursorline=0 "fix lag problem caused by colored icons
+let NERDTreeHighlightCursorcolumn=0 "fix lag problem caused by colored icons
+augroup nerdtreedisablecursorline
+  autocmd!
+  autocmd FileType nerdtree setlocal nocursorline
+  autocmd FileType nerdtree setlocal nocursorcolumn
+augroup end
 let NERDTreeShowBookmarks=1
 " let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-let NERDTreeIgnore = ['\.keep$', '\.DS_Store$', '\.tanium-user-key-encryption.key$']
+let NERDTreeIgnore = ['\.keep$', '\.DS_Store$']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=0
 let NERDTreeMouseMode=3
@@ -173,8 +180,7 @@ hi link javaScriptTemplateString String
 let g:jsx_ext_required = 0
 
 " fzf
-"set rtp+=/usr/local/opt/fzf "use this line for local install of fzf
-set rtp+=/opt/homebrew/opt/fzf "use this line for homebrew based install of fzf
+set rtp+=/usr/local/opt/fzf
 nnoremap <Leader>t :Files<CR>
 nnoremap <Leader>r :Tags<CR>
 
@@ -354,4 +360,4 @@ endif
 
 " vim-devicons for nerdtree filetypes
 set encoding=utf8 "allow showing glyphs
-"set guifont=DejaVuSansM\ Nerd\ Font:h11 "fontname:fontsize
+set guifont=DejaVuSansM\ Nerd\ Font:h11 "fontname:fontsize
