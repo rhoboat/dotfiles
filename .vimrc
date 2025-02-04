@@ -354,4 +354,4 @@ endif
 
 " vim-devicons for nerdtree filetypes
 set encoding=utf8 "allow showing glyphs
-set guifont=DejaVuSansM\ Nerd\ Font:h11 "fontname:fontsize
+"set guifont=DejaVuSansM\ Nerd\ Font:h11 "fontname:fontsize
