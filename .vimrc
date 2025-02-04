@@ -133,7 +133,7 @@ cnoreabbrev nt nt<c-\>esubstitute(getcmdline(), '^nt\>', 'NERDTree', '')<enter>
 map <leader>e :NERDTreeFind<CR>
 let NERDTreeShowBookmarks=1
 " let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-let NERDTreeIgnore = ['\.keep$', '\.DS_Store$']
+let NERDTreeIgnore = ['\.keep$', '\.DS_Store$', '\.tanium-user-key-encryption.key$']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=0
 let NERDTreeMouseMode=3
@@ -173,7 +173,8 @@ hi link javaScriptTemplateString String
 let g:jsx_ext_required = 0
 
 " fzf
-set rtp+=/usr/local/opt/fzf
+"set rtp+=/usr/local/opt/fzf "use this line for local install of fzf
+set rtp+=/opt/homebrew/opt/fzf "use this line for homebrew based install of fzf
 nnoremap <Leader>t :Files<CR>
 nnoremap <Leader>r :Tags<CR>
 

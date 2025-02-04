@@ -1,20 +1,12 @@
 devDir="$HOME/Development"
-alias vim='/usr/local/bin/vim'
+# Now using homebrew installation of vim, not the below.
+#alias vim='/usr/local/bin/vim'
 alias dotf='cd $devDir/dotfiles'
 alias pgstart='pg_ctl -D /usr/local/var/postgres start'
 alias pgstop='pg_ctl -D /usr/local/var/postgres stop'
 alias youtube-mp3='youtube-dl --extract-audio --audio-format mp3'
 alias dockerstop='docker stop --time 0 `docker ps --format "{{.ID}}" --last 1`'
 alias docker_reclaim='($foo=docker ps -q -f "status=exited"; [[ -n $foo ]] && docker rm $foo || true) && ($bar=docker images -q -f "dangling=true"; [[ -n $bar ]] && docker rmi $bar)'
-
-# Load work aliases
-[[ -s "$HOME/.bash_work" ]] && source "$HOME/.bash_work"
-
-# Load play aliases
-[[ -s "$HOME/.bash_play" ]] && source "$HOME/.bash_play"
-
-# AWS Vault Aliases
-alias awsin='f() { aws-vault login $1 -d12h -s | pbcopy; };f'
 
 # Git Aliases
 alias gra='f() { git remote add github $(git remote get-url origin); };f'

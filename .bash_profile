@@ -3,9 +3,7 @@
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
 
 export TERM="screen-256color"
-
-# Export github personal access token
-export GITHUB_OAUTH_TOKEN=$(pass github-oauth-token)
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Prepend to PATH
 export PATH=/usr/local/sbin:$PATH
@@ -15,7 +13,6 @@ export PATH="$HOME/Library/Application Support/Mozilla/NativeMessagingHosts/:$PA
 export PATH="/usr/local/bin:$PATH"
 # Pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
-
 
 # Append to PATH
 export PATH="$PATH:/usr/local/bin/go"
