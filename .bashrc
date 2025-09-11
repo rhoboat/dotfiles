@@ -32,6 +32,8 @@ alias gpr='f() { gco -q master; git branch -Dq pr/$1; git fetch github pull/$1/h
 alias gprm='f() { gco -q master; git branch -Dq mine/pr/$1; git fetch mine pull/$1/head:mine/pr/$1 && gco -q mine/pr/$1; };f'
 alias gcleanup='git remote prune github && git remote prune origin'
 alias gf='git fetch github main'
+# stash only the unstaged work: removes unstaged work, stashes all changes
+alias gsu='git stash push --keep-index'
 
 # Remove this when no longer needed
 alias gmm='f() { gb -m master main; git fetch $1; gb -u $1/main main; git remote set-head $1 -a; };f'
