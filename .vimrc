@@ -188,8 +188,8 @@ hi link javaScriptTemplateString String
 let g:jsx_ext_required = 0
 
 " fzf
-"set rtp+=/usr/local/opt/fzf "use this line for local install of fzf
-set rtp+=/opt/homebrew/opt/fzf "use this line for homebrew based install of fzf
+set rtp+=/usr/local/opt/fzf "use this line for local install of fzf
+"set rtp+=/opt/homebrew/opt/fzf "use this line for homebrew based install of fzf
 nnoremap <Leader>t :Files<CR>
 nnoremap <Leader>r :Tags<CR>
 
