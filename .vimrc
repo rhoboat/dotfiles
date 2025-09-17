@@ -14,6 +14,7 @@ set autoread                   "Reload files changed outside vim
 set foldmethod=indent          "Creates folds at indentations
 set splitright                 "Open vertical splits to the right
 set splitbelow                 "Open splits to the bottom
+set encoding=utf8              "Show glyphs (nerd fonts in statusline and nerdtree
 
 " Choose a buffer quickly
 nnoremap ; :buffers<CR>:buffer<Space>
@@ -126,7 +127,13 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " Autoremove trailing whitespace on :w
-"autocmd BufWritePre * :%s/\s\+$//e
+fun! TrimWhitespace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfun
+
+autocmd BufWritePre * call TrimWhitespace()
 
 " :nt opens NERDTree
 cnoreabbrev nt nt<c-\>esubstitute(getcmdline(), '^nt\>', 'NERDTree', '')<enter>
@@ -146,6 +153,7 @@ let NERDTreeQuitOnOpen=0
 let NERDTreeMouseMode=3
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
+let g:NERDTreeCaseSensitiveFS=1
 let g:NERDTreeWinSize = 35
 "close vim if only nerdtree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -180,7 +188,8 @@ hi link javaScriptTemplateString String
 let g:jsx_ext_required = 0
 
 " fzf
-set rtp+=/usr/local/opt/fzf
+"set rtp+=/usr/local/opt/fzf "use this line for local install of fzf
+set rtp+=/opt/homebrew/opt/fzf "use this line for homebrew based install of fzf
 nnoremap <Leader>t :Files<CR>
 nnoremap <Leader>r :Tags<CR>
 
@@ -289,26 +298,26 @@ hi StatusLine ctermbg=136 ctermfg=236
 hi StatusLineNc ctermbg=gray ctermfg=236
 hi VertSplit ctermbg=236 ctermfg=236
 
-set statusline=         "clear
-set statusline+=%f      "tail of the filename
-set statusline+=%y      "filetype
-set statusline+=%#ALEError# "green color (defined above)
-set statusline+=%m      "modified flag
-set statusline+=%*      "normal color
-set statusline+=%r      "read only flag
-set statusline+=%=      "left/right separator
-set statusline+=%{OkLinterStatus()}
-set statusline+=%#ALEWarning#
-set statusline+=%{WarnLinterStatus()}
-set statusline+=%*      "normal color
-set statusline+=%#ALEError#
-set statusline+=%{ErrorLinterStatus()}
-set statusline+=%*      "normal color
-
-set statusline+=\ %c,   "cursor column
-set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
-set laststatus=2        "always show status line
+"set statusline=         "clear
+"set statusline+=%f      "tail of the filename
+"set statusline+=%y      "filetype
+"set statusline+=%#ALEError# "green color (defined above)
+"set statusline+=%m      "modified flag
+"set statusline+=%*      "normal color
+"set statusline+=%r      "read only flag
+"set statusline+=%=      "left/right separator
+"set statusline+=%{OkLinterStatus()}
+"set statusline+=%#ALEWarning#
+"set statusline+=%{WarnLinterStatus()}
+"set statusline+=%*      "normal color
+"set statusline+=%#ALEError#
+"set statusline+=%{ErrorLinterStatus()}
+"set statusline+=%*      "normal color
+"
+"set statusline+=\ %c,   "cursor column
+"set statusline+=%l/%L   "cursor line/total lines
+"set statusline+=\ %P    "percent through file
+"set laststatus=2        "always show status line
 
 " gitgutter
 let g:gitgutter_sign_added = '・'
@@ -358,6 +367,9 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-" vim-devicons for nerdtree filetypes
-set encoding=utf8 "allow showing glyphs
-set guifont=DejaVuSansM\ Nerd\ Font:h11 "fontname:fontsize
+" Sets the statusbar theme
+let g:airline_theme='distinguished'
+" Add ability to see icons in statusline
+let g:airline_powerline_fonts = 1
+" Set vim font to a nerd font
+set guifont=DejaVuSansMNF:h13
