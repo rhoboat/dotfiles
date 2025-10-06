@@ -298,27 +298,6 @@ hi StatusLine ctermbg=136 ctermfg=236
 hi StatusLineNc ctermbg=gray ctermfg=236
 hi VertSplit ctermbg=236 ctermfg=236
 
-"set statusline=         "clear
-"set statusline+=%f      "tail of the filename
-"set statusline+=%y      "filetype
-"set statusline+=%#ALEError# "green color (defined above)
-"set statusline+=%m      "modified flag
-"set statusline+=%*      "normal color
-"set statusline+=%r      "read only flag
-"set statusline+=%=      "left/right separator
-"set statusline+=%{OkLinterStatus()}
-"set statusline+=%#ALEWarning#
-"set statusline+=%{WarnLinterStatus()}
-"set statusline+=%*      "normal color
-"set statusline+=%#ALEError#
-"set statusline+=%{ErrorLinterStatus()}
-"set statusline+=%*      "normal color
-"
-"set statusline+=\ %c,   "cursor column
-"set statusline+=%l/%L   "cursor line/total lines
-"set statusline+=\ %P    "percent through file
-"set laststatus=2        "always show status line
-
 " gitgutter
 let g:gitgutter_sign_added = '・'
 let g:gitgutter_sign_modified = '・'
