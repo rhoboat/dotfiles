@@ -33,8 +33,6 @@ nnoremap Y y$
 let &t_SI.="\e[6 q" "SI = INSERT mode
 let &t_SR.="\e[4 q" "SR = REPLACE mode
 let &t_EI.="\e[2 q" "EI = NORMAL mode
-set cursorline
-set cursorcolumn
 
 " allow buffers to exist in the background without being in a window
 set hidden
@@ -136,6 +134,15 @@ endfun
 
 autocmd BufWritePre * call TrimWhitespace()
 
+" NERDTree Settings
+" In case I want cursorline and cursorcolumn again, this guards Nerdtree:
+let NERDTreeHighlightCursorline=0 "fix lag problem caused by colored icons
+let NERDTreeHighlightCursorcolumn=0 "fix lag problem caused by colored icons
+augroup nerdtreedisablecursorline
+  autocmd!
+  autocmd FileType nerdtree setlocal nocursorline
+  autocmd FileType nerdtree setlocal nocursorcolumn
+augroup end
 " :nt opens NERDTree
 cnoreabbrev nt nt<c-\>esubstitute(getcmdline(), '^nt\>', 'NERDTree', '')<enter>
 map <leader>e :NERDTreeFind<CR>
@@ -337,9 +344,22 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-" Sets the statusbar theme
+" Set the statusbar theme
 let g:airline_theme='distinguished'
 " Add ability to see icons in statusline
 let g:airline_powerline_fonts = 1
 " Set vim font to a nerd font
 set guifont=DejaVuSansMNF:h13
+
+" Cycle color schemes for funsies
+let g:colors = getcompletion('', 'color')
+func! NextColors()
+  let idx = index(g:colors, g:colors_name)
+  return (idx + 1 >= len(g:colors) ? g:colors[0] : g:colors[idx + 1])
+endfunc
+func! PrevColors()
+  let idx = index(g:colors, g:colors_name)
+  return (idx - 1 < 0 ? g:colors[-1] : g:colors[idx - 1])
+endfunc
+nnoremap <Leader>n :exe "colo " .. NextColors()<CR>
+nnoremap <Leader>p :exe "colo " .. PrevColors()<CR>
