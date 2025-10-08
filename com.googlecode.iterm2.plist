@@ -12,16 +12,6 @@
 	<true/>
 	<key>AlternateMouseScroll</key>
 	<true/>
-	<key>AppleAntiAliasingThreshold</key>
-	<integer>1</integer>
-	<key>ApplePressAndHoldEnabled</key>
-	<false/>
-	<key>AppleScrollAnimationEnabled</key>
-	<integer>0</integer>
-	<key>AppleSmoothFixedFontsSizeThreshold</key>
-	<integer>1</integer>
-	<key>AppleWindowTabbingMode</key>
-	<string>manual</string>
 	<key>AutoHideTmuxClientSession</key>
 	<true/>
 	<key>BellRateLimit</key>
@@ -199,7 +189,7 @@
 			<key>AWDS Tab Option</key>
 			<string>Recycle</string>
 			<key>AWDS Window Directory</key>
-			<string>~</string>
+			<string>~/Development</string>
 			<key>AWDS Window Option</key>
 			<string>Yes</string>
 			<key>Allow Title Setting</key>
@@ -262,12 +252,16 @@
 			</dict>
 			<key>Ansi 14 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.7517889142036438</real>
+				<key>Color Space</key>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>1</real>
+				<real>0.73635280132293701</real>
 				<key>Red Component</key>
-				<real>0.3333333432674408</real>
+				<real>0.55724400281906128</real>
 			</dict>
 			<key>Ansi 15 Color</key>
 			<dict>
@@ -316,12 +310,16 @@
 			</dict>
 			<key>Ansi 6 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.6752583384513855</real>
+				<key>Color Space</key>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.66104161739349365</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.39374092221260071</real>
 			</dict>
 			<key>Ansi 7 Color</key>
 			<dict>
@@ -789,11 +787,11 @@
 			<key>Name</key>
 			<string>Dark mode 🔮</string>
 			<key>Non Ascii Font</key>
-			<string>DejaVuSansMNFM 20</string>
+			<string>DejaVuSansMNF 13</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>DejaVuSansMNFM 13</string>
+			<string>DejaVuSansMNF 13</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Open Toolbelt</key>
@@ -985,7 +983,7 @@
 			<key>AWDS Tab Option</key>
 			<string>Recycle</string>
 			<key>AWDS Window Directory</key>
-			<string>~</string>
+			<string>~/Development</string>
 			<key>AWDS Window Option</key>
 			<string>Yes</string>
 			<key>Allow Title Setting</key>
@@ -1102,12 +1100,16 @@
 			</dict>
 			<key>Ansi 6 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.67981451749801636</real>
+				<key>Color Space</key>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.66543155908584595</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.39514341950416565</real>
 			</dict>
 			<key>Ansi 7 Color</key>
 			<dict>
@@ -1571,11 +1573,11 @@
 			<key>Name</key>
 			<string>Light mode 🎲</string>
 			<key>Non Ascii Font</key>
-			<string>DejaVuSansMNFM 20</string>
+			<string>DejaVuSansMNF 13</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>DejaVuSansMNFM 13</string>
+			<string>DejaVuSansMNF 13</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Open Toolbelt</key>

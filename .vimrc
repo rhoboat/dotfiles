@@ -2,7 +2,8 @@
 execute pathogen#infect()
 
 " ================ General Config ====================
-colorscheme Tomorrow-Night-Bright "Color theme
+colorscheme zaibatsu "Cute Dark Color theme
+"colorscheme Tomorrow-Night-Bright "Dark mode color theme
 "colorscheme pyte                  "Light mode color theme
 set modeline
 set backspace=indent,eol,start "Allow backspace in insert mode
@@ -138,16 +139,9 @@ autocmd BufWritePre * call TrimWhitespace()
 " :nt opens NERDTree
 cnoreabbrev nt nt<c-\>esubstitute(getcmdline(), '^nt\>', 'NERDTree', '')<enter>
 map <leader>e :NERDTreeFind<CR>
-let NERDTreeHighlightCursorline=0 "fix lag problem caused by colored icons
-let NERDTreeHighlightCursorcolumn=0 "fix lag problem caused by colored icons
-augroup nerdtreedisablecursorline
-  autocmd!
-  autocmd FileType nerdtree setlocal nocursorline
-  autocmd FileType nerdtree setlocal nocursorcolumn
-augroup end
 let NERDTreeShowBookmarks=1
 " let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-let NERDTreeIgnore = ['\.keep$', '\.DS_Store$']
+let NERDTreeIgnore = ['\.keep$', '\.DS_Store$', '\.tanium-user-key-encryption.key$']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=0
 let NERDTreeMouseMode=3
@@ -171,10 +165,7 @@ let g:lisp_rainbow=1
 
 " ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-" MacOSX/Linux setting:
 " let g:ctrlp_user_command = 'find %s -type f
-let g:ctrlp_working_path_mode = 'wra'
-" ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " a reversed cursor
