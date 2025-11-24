@@ -73,15 +73,3 @@ fi
 
 # This might fix the no matches found issue when I try to use regex in zsh
 unsetopt nomatch
-
-# Starting fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Created by `pipx` on 2021-07-09 15:45:45
-export PATH="$PATH:/Users/rhozen/.local/bin"
-
-# Add go and RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$GOROOT/bin:$GOPATH/bin:$HOME/.rvm/bin"
-
-# Use asdf via ZSH and Homebrew
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
