@@ -15,7 +15,7 @@ set autoread                   "Reload files changed outside vim
 set foldmethod=indent          "Creates folds at indentations
 set splitright                 "Open vertical splits to the right
 set splitbelow                 "Open splits to the bottom
-set encoding=utf8              "Show glyphs (nerd fonts in statusline and nerdtree
+set encoding=utf8              "Show glyphs (nerd fonts in statusline and nerdtree)
 
 " Choose a buffer quickly
 nnoremap ; :buffers<CR>:buffer<Space>
@@ -291,11 +291,6 @@ function! ErrorLinterStatus()
   return l:counts.error == 0 ? '' : printf('%de', counts.error)
 endfunction
 
-" Darken statusline background
-hi StatusLine ctermbg=136 ctermfg=236
-hi StatusLineNc ctermbg=gray ctermfg=236
-hi VertSplit ctermbg=236 ctermfg=236
-
 " gitgutter
 let g:gitgutter_sign_added = '・'
 let g:gitgutter_sign_modified = '・'
@@ -344,12 +339,17 @@ if &term =~ '256color'
   set t_ut=
 endif
 
+" Github enterprise
+let g:github_enterprise_urls = ['https://github.aexp.com']
+
 " Set the statusbar theme
 let g:airline_theme='distinguished'
 " Add ability to see icons in statusline
 let g:airline_powerline_fonts = 1
 " Set vim font to a nerd font
 set guifont=DejaVuSansMNF:h13
+" Let airline handle ALE integration
+"let g:airline#extensions#ale#enabled = 1
 
 " Cycle color schemes for funsies
 let g:colors = getcompletion('', 'color')
@@ -363,3 +363,6 @@ func! PrevColors()
 endfunc
 nnoremap <Leader>n :exe "colo " .. NextColors()<CR>
 nnoremap <Leader>p :exe "colo " .. PrevColors()<CR>
+
+" Change the Vertical Split style
+hi VertSplit ctermbg=236 ctermfg=236
