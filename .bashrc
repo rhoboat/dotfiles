@@ -34,6 +34,10 @@ alias gcl='git remote prune github && git remote prune origin'
 alias gf='git fetch github main'
 # stash only the unstaged work: removes unstaged work, stashes all changes
 alias gsu='git stash push --keep-index'
+alias gcamex='f() { git clone https://github.aexp.com/amex-eng/$1.git; cd $1; gra; };f'
+
+# asdf commands
+alias upgrade='f() { asdf latest $1; asdf install $1 latest};f'
 
 # Remove this when no longer needed
 alias gmm='f() { gb -m master main; git fetch $1; gb -u $1/main main; git remote set-head $1 -a; };f'
