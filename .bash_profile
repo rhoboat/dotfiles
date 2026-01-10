@@ -28,7 +28,6 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$PATH:/usr/local/bin/go"
 
 # Set GOROOT and GOPATH here.
-# They are appended to PATH in ~/.zshrc to make sure they're the last things appended to PATH.
 export GOROOT="$(asdf where golang)/go/"
 export GOPATH=$HOME/Development/Go
 # Stop that error in vim-go where gopls doesn't have GOBIN set.
