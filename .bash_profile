@@ -28,8 +28,10 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$PATH:/usr/local/bin/go"
 
 # Set GOROOT and GOPATH here.
-export GOROOT="$(asdf where golang)/go/"
-export GOPATH=$HOME/Development/Go
+# export GOROOT="$(asdf where golang)/go/"
+# export GOPATH=$HOME/Development/Go
+# This sets both GOROOT and GOPATH:
+source ~/.asdf/plugins/golang/set-env.zsh
 # Stop that error in vim-go where gopls doesn't have GOBIN set.
 export GOBIN="/usr/local/go/bin/go"
 # Stop that frustrating error when running go get
