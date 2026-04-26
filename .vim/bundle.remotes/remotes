@@ -17,3 +17,7 @@ https://github.com/vim-airline/vim-airline-themes.git
 https://github.com/leafgarland/typescript-vim.git
 https://github.com/dense-analysis/ale.git
 https://github.com/ctrlpvim/ctrlp.vim.git
+https://github.com/junegunn/fzf.vim.git
+https://github.com/tmux-plugins/tmux-continuum.git
+https://github.com/tmux-plugins/tmux-resurrect.git
+https://github.com/tmux-plugins/tmux-yank.git
