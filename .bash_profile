@@ -21,6 +21,8 @@ export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 export PATH=/usr/local/sbin:$PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/Library/Application Support/Mozilla/NativeMessagingHosts/:$PATH"
+# Use the Homebrew version of git rather than system installed git
+export PATH="/usr/local/bin:$PATH"
 # Pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
 
